@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "ea130081-c669-460f-a5f4-5dde14f03131",
+      "name": "Statistical Accounts",
+      "publisher": "Microsoft",
+      "version": "26.2.34746.34865"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "22.0.0.0",
