@@ -1,5 +1,6 @@
 codeunit 50700 "BCS Attachment Management"
 {
+    // TODO: check this functionality on future wave releases .Reason: Obsolete page and likely to be refactor.
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
 
@@ -47,7 +48,7 @@ codeunit 50700 "BCS Attachment Management"
                 end;
         end;
     end;
-
+    // This procedure is used to determine if the entity should show attachments.
     procedure EntityEnabledAttachments(TableId: Integer): Boolean
     begin
         case TableId of
@@ -61,7 +62,7 @@ codeunit 50700 "BCS Attachment Management"
                 exit(false);
         end;
     end;
-
+    // This procedure is used to determine if the entity should show links.
     procedure EntityEnabledLinks(TableId: Integer): Boolean
     begin
         case TableId of
@@ -75,7 +76,7 @@ codeunit 50700 "BCS Attachment Management"
                 exit(false);
         end;
     end;
-
+    // This procedure is used to determine if the entity should show notes.
     procedure EntityEnabledNotes(TableId: Integer): Boolean
     begin
         case TableId of

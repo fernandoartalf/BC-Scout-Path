@@ -9,9 +9,22 @@ pageextension 50701 "BCS Statistical Account List" extends "Statistical Account 
                 ApplicationArea = All;
                 Caption = 'Attachments';
                 ToolTip = 'View and manage attachments related to this statistical account.';
+                ObsoleteTag = '25.0';
+                ObsoleteState = Pending;
+                ObsoleteReason = 'The "Document Attachment FactBox" has been replaced by "Doc. Attachment List Factbox", which supports multiple files upload.';
                 SubPageLink = "Table ID" = const(Database::"Statistical Account"),
                               "No." = field("No."),
                               "Document Type" = const(BCSStatisticalAccount);
+                Visible = false;
+                Editable = enabledattachments;
+            }
+            part("Attached Documents List"; "Doc. Attachment List Factbox")
+            {
+                ApplicationArea = All;
+                Caption = 'Documents';
+                UpdatePropagation = Both;
+                SubPageLink = "Table ID" = const(Database::"Statistical Account"),
+                              "No." = field("No.");
                 Visible = enabledattachments;
                 Editable = enabledattachments;
             }
