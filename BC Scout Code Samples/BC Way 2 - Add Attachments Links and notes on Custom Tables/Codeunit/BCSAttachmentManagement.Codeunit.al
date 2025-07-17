@@ -49,8 +49,6 @@ codeunit 50700 "BCS Attachment Management"
     end;
 
     procedure EntityEnabledAttachments(TableId: Integer): Boolean
-    var
-        BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
     begin
         case TableId of
             DATABASE::"Statistical Account":
@@ -64,6 +62,35 @@ codeunit 50700 "BCS Attachment Management"
         end;
     end;
 
+    procedure EntityEnabledLinks(TableId: Integer): Boolean
+    begin
+        case TableId of
+            DATABASE::"Statistical Account":
+                begin
+                    if BCSStatisticalAccountSetup.Get() then
+                        exit(BCSStatisticalAccountSetup."Enable links");
+                    exit(false);
+                end;
+            else
+                exit(false);
+        end;
+    end;
+
+    procedure EntityEnabledNotes(TableId: Integer): Boolean
+    begin
+        case TableId of
+            DATABASE::"Statistical Account":
+                begin
+                    if BCSStatisticalAccountSetup.Get() then
+                        exit(BCSStatisticalAccountSetup."Enable Notes");
+                    exit(false);
+                end;
+            else
+                exit(false);
+        end;
+    end;
+
     var
         StatisticalAccount: Record "Statistical Account";
+        BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
 }

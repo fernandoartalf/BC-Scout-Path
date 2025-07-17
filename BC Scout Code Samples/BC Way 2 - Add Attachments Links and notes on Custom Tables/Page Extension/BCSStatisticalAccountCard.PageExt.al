@@ -1,5 +1,6 @@
 pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account Card"
 {
+    LinksAllowed = true;
     layout
     {
         addfirst(factboxes)
@@ -16,14 +17,26 @@ pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account 
                 Editable = enabledattachments;
             }
         }
+        modify(Control1900383207)
+        {
+            Visible = enablelinks;
+        }
+        modify(Control1905767507)
+        {
+            Visible = enablenotes;
+        }
     }
     trigger OnOpenPage()
     begin
         enabledattachments := BCSAttachmentManagement.EntityEnabledAttachments(DATABASE::"Statistical Account");
+        enablelinks := BCSAttachmentManagement.EntityEnabledLinks(DATABASE::"Statistical Account");
+        enablenotes := BCSAttachmentManagement.EntityEnabledNotes(DATABASE::"Statistical Account");
     end;
 
     var
         BCSAttachmentManagement: Codeunit "BCS Attachment Management";
         enabledattachments: Boolean;
+        enablelinks: Boolean;
+        enablenotes: Boolean;
 
 }

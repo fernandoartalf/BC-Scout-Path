@@ -14,6 +14,17 @@ table 50700 "BCS Statistical Account Setup"
         field(10; "Enable Attachments"; Boolean)
         {
             Caption = 'Enable Attachments on Statistical Accounts';
+            InitValue = true;
+        }
+        field(11; "Enable Links"; Boolean)
+        {
+            Caption = 'Enable Links on Statistical Accounts';
+            InitValue = true;
+        }
+        field(12; "Enable Notes"; Boolean)
+        {
+            Caption = 'Enable Notes on Statistical Accounts';
+            InitValue = true;
         }
     }
 

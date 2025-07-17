@@ -21,6 +21,16 @@ page 50700 "BCS Statistical Account Setup"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Enable Attachments on Statistical Accounts field.', Comment = '%';
                 }
+                field("Enable Links"; Rec."Enable Links")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Enable Links on Statistical Accounts field.', Comment = '%';
+                }
+                field("Enable Notes"; Rec."Enable Notes")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Enable Notes on Statistical Accounts field.', Comment = '%';
+                }
             }
         }
     }
