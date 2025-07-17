@@ -1,6 +1,5 @@
 pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account Card"
 {
-    LinksAllowed = true;
     layout
     {
         addfirst(factboxes)
