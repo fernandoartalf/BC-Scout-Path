@@ -3,6 +3,14 @@ pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account 
     // This page extension is used to extend the current functionality of the Statistical Account Card page.
     layout
     {
+        modify("No.")
+        {
+            trigger OnAssistEdit()
+            begin
+                if Rec.AssistEdit() then
+                    CurrPage.Update();
+            end;
+        }
         addfirst(factboxes)
         {
             part("Attached Documents"; "Document Attachment Factbox")
