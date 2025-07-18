@@ -7,5 +7,34 @@
       "path": ".AL-Go"
     }
   ],
-  "settings": {}
+  "settings": {
+    "al.enableCodeAnalysis": true,
+    "al.backgroundCodeAnalysis": true,
+    "al.codeAnalyzers": [
+      "${CodeCop}",
+      "${PerTenantExtensionCop}",
+      "${UICop}"
+    ],
+    "alOutline.codeActionsOnSave": [
+      "SortVariables"
+    ],
+    "CRS.ObjectNamePrefix": "BCS ",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "alCodeActions.varParameters": [
+      "IsHandled"
+    ],
+    "al-test-runner.failingTestsColor": {
+      "red": 255,
+      "green": 0,
+      "blue": 0,
+      "alpha": 0.3
+    },
+    "al-test-runner.passingTestsColor": {
+      "red": 0,
+      "green": 255,
+      "blue": 0,
+      "alpha": 0.3
+    }
+  }
 }
