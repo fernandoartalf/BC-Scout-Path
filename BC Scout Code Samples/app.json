@@ -9,7 +9,7 @@
   "EULA": "",
   "help": "",
   "url": "",
-  "logo": "",
+  "logo": "./img/BCS Logo.jpg",
   "dependencies": [
     {
       "id": "ea130081-c669-460f-a5f4-5dde14f03131",
