@@ -14,7 +14,7 @@ codeunit 50700 "BCS Attachment Management"
                 end;
         end;
     end;
-
+    // This subscription is used to handle the opening of the Document Attachment Details page for a specific record reference.
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Details", 'OnAfterOpenForRecRef', '', false, false)]
     local procedure OnAfterOpenForRecRef(var DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
@@ -31,7 +31,7 @@ codeunit 50700 "BCS Attachment Management"
                 end;
         end;
     end;
-
+    // This subscription is used to initialize the fields of the Document Attachment record from a RecordRef.
     [EventSubscriber(ObjectType::Table, Database::"Document Attachment", 'OnAfterInitFieldsFromRecRef', '', false, false)]
     local procedure OnAfterInitFieldsFromRecRef(var DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef)
     var

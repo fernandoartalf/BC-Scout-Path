@@ -4,6 +4,7 @@ table 50700 "BCS Statistical Account Setup"
     DataClassification = ToBeClassified;
     DrillDownPageID = "BCS Statistical Account Setup";
     LookupPageID = "BCS Statistical Account Setup";
+    // This table is used to store the setup for Statistical Accounts.
     fields
     {
         field(1; "Primary Key"; Code[10])

@@ -7,7 +7,7 @@ page 50700 "BCS Statistical Account Setup"
     DeleteAllowed = false;
     InsertAllowed = false;
     UsageCategory = Administration;
-
+    // This page is used to configure the Statistical Accounts Business Logic.
     layout
     {
         area(Content)
