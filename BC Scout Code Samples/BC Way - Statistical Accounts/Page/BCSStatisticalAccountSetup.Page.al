@@ -32,6 +32,15 @@ page 50700 "BCS Statistical Account Setup"
                     ToolTip = 'Specifies the value of the Enable Notes on Statistical Accounts field.', Comment = '%';
                 }
             }
+            group("Number Series")
+            {
+                Caption = 'Number Series';
+                field("Statistical Account Nos."; Rec."Statistical Account Nos.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the number series used for Statistical Accounts.', Comment = '%';
+                }
+            }
         }
     }
     trigger OnOpenPage()
