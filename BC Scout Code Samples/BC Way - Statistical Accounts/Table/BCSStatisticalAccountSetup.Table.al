@@ -12,6 +12,12 @@ table 50700 "BCS Statistical Account Setup"
             AllowInCustomizations = Never;
             Caption = 'Primary Key';
         }
+        field(2; "Statistical Account Nos."; code[20])
+        {
+            Caption = 'Statistical Account Nos.';
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
         field(10; "Enable Attachments"; Boolean)
         {
             Caption = 'Enable Attachments on Statistical Accounts';
