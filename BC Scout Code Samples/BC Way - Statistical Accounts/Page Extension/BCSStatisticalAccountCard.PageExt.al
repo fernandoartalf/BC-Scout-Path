@@ -17,7 +17,6 @@ pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account 
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
-                ToolTip = 'View and manage attachments related to this statistical account.';
                 ObsoleteTag = '25.0';
                 ObsoleteState = Pending;
                 ObsoleteReason = 'The "Document Attachment FactBox" has been replaced by "Doc. Attachment List Factbox", which supports multiple files upload.';
