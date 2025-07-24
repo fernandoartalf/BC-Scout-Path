@@ -2,7 +2,7 @@
   "id": "e2d0c1d4-5793-481e-a2a1-7f69d9cf027c",
   "name": "BC Scout Code Samples",
   "publisher": "BC Scout",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -20,16 +20,18 @@
   ],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "22.0.0.0",
+  "application": "25.0.0.0",
   "idRanges": [
     {
       "from": 50700,
       "to": 50800
     }
   ],
+  "runtime": "15.0",
   "features": [
     "NoImplicitWith"
   ],
+  "resourceFolders": ["resource"],
   "resourceExposurePolicy": {
     "allowDebugging": true,
     "allowDownloadingSource": false,

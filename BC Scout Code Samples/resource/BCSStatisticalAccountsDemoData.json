@@ -1,0 +1,786 @@
+[
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-AGE-25)",
+        "recordId": "Statistical Account: DIV-AGE-25",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-AGE-25"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-AGE-25"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Age <25"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 18.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 18.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 18.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-AGE-40)",
+        "recordId": "Statistical Account: DIV-AGE-40",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-AGE-40"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-AGE-40"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Age 25-40"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 22.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 22.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 22.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-AGE-55)",
+        "recordId": "Statistical Account: DIV-AGE-55",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-AGE-55"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-AGE-55"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Age 40-55"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 30.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 30.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 30.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-AGE-55+)",
+        "recordId": "Statistical Account: DIV-AGE-55+",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-AGE-55+"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-AGE-55+"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Age 55+"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 20.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 20.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 20.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-GEND-FEM)",
+        "recordId": "Statistical Account: DIV-GEND-FEM",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-GEND-FEM"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-GEND-FEM"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Gender - Female"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 48.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 48.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 48.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(DIV-GEND-MAL)",
+        "recordId": "Statistical Account: DIV-GEND-MAL",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "DIV-GEND-MAL"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "DIV-GEND-MAL"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": "Diversity: Employees Gender - Male"
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": 42.0
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": 42.0
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": 42.0
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(STA000250000002)",
+        "recordId": "Statistical Account: STA000250000002",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "STA000250000002"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "STA000250000002"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": null
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": "STA"
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": null
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": null
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": null
+            }
+        ]
+    },
+    {
+        "id": 2632,
+        "name": "StatisticalAccount",
+        "company": "CRONUS ES",
+        "position": "No.=CONST(T)",
+        "recordId": "Statistical Account: T",
+        "primaryKey": {
+            "fieldCount": 1,
+            "keyFields": [
+                {
+                    "id": 1,
+                    "name": "No",
+                    "type": "Code",
+                    "value": "T"
+                }
+            ]
+        },
+        "fields": [
+            {
+                "id": 1,
+                "name": "No",
+                "type": "Code",
+                "value": "T"
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "type": "Text",
+                "value": null
+            },
+            {
+                "id": 6,
+                "name": "GlobalDimension1Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 7,
+                "name": "GlobalDimension2Code",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 13,
+                "name": "Blocked",
+                "type": "Boolean",
+                "value": false
+            },
+            {
+                "id": 50700,
+                "name": "BCSNoSeries",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 28,
+                "name": "DateFilter",
+                "type": "Date",
+                "value": null
+            },
+            {
+                "id": 29,
+                "name": "GlobalDimension1Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 30,
+                "name": "GlobalDimension2Filter",
+                "type": "Code",
+                "value": null
+            },
+            {
+                "id": 400,
+                "name": "DimensionSetIDFilter",
+                "type": "Integer",
+                "value": null
+            },
+            {
+                "id": 31,
+                "name": "BalanceatDate",
+                "type": "Decimal",
+                "value": null
+            },
+            {
+                "id": 32,
+                "name": "NetChange",
+                "type": "Decimal",
+                "value": null
+            },
+            {
+                "id": 36,
+                "name": "Balance",
+                "type": "Decimal",
+                "value": null
+            }
+        ]
+    }
+]

@@ -7,7 +7,7 @@ codeunit 50701 "BCS Stat. Account Install"
         StatisticalAccountModuleInfo: ModuleInfo;
     begin
         NavApp.GetCurrentModuleInfo(StatisticalAccountModuleInfo);
-        if StatisticalAccountModuleInfo.DataVersion = Version.Create(0, 0, 0, 0) then
+        if IsFirstTimeDeployment(StatisticalAccountModuleInfo) and IsSandboxEnvironment() then
             DeployInstallationSetup();
     end;
 
@@ -83,6 +83,13 @@ codeunit 50701 "BCS Stat. Account Install"
     begin
         if EnvironmentInformation.IsSandbox() then
             IsSandbox := true;
+    end;
+
+    // Check if this is the first time the module is being deployed.
+    local procedure IsFirstTimeDeployment(var StatisticalAccountModuleInfo: ModuleInfo): Boolean
+    begin
+        if StatisticalAccountModuleInfo.DataVersion = Version.Create(0, 0, 0, 0) then
+            exit(true);
     end;
 
     var

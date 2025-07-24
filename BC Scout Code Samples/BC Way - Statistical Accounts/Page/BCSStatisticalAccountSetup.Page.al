@@ -43,6 +43,42 @@ page 50700 "BCS Statistical Account Setup"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(DownloadJson)
+            {
+                ApplicationArea = All;
+                Caption = 'Download JSON';
+                Image = Download;
+                ToolTip = 'Download the Statistical Accounts as a JSON file.';
+                trigger OnAction()
+                var
+                    StatisticalAccount: Record "Statistical Account";
+                    BCSDownloadJson: Codeunit "BCS Download Json";
+                begin
+                    if StatisticalAccount.FindFirst() then
+                        BCSDownloadJson.DownloadJson(StatisticalAccount);
+                end;
+            }
+            action(DeployDemoData)
+            {
+                ApplicationArea = All;
+                Caption = 'Deploy Demo Data';
+                Image = Import;
+                ToolTip = 'Deploy the Statistical Accounts demo data.';
+                trigger OnAction()
+                var
+                    BCSDemoDataDeployment: Codeunit "BCS Demo Data Deployment";
+                begin
+
+                    BCSDemoDataDeployment.InternalJsonList();
+                    Message('Statistical Accounts demo data deployed successfully.');
+                end;
+            }
+        }
+    }
     trigger OnOpenPage()
     begin
         Rec.Reset();
