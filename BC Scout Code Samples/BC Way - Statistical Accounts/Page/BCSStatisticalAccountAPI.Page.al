@@ -4,8 +4,8 @@ using Microsoft.Finance.Analysis.StatisticalAccount;
 
 page 50701 "BCS Statistical Account API"
 {
-    APIGroup = 'BCS';
-    APIPublisher = 'publisherName';
+    APIGroup = 'bcs';
+    APIPublisher = 'bcScout';
     APIVersion = 'v2.0';
     ApplicationArea = All;
     Caption = 'statisticalAccountAPI';
