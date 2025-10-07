@@ -1,4 +1,4 @@
-table 50700 "BCS Statistical Account Setup"
+table 60700 "BCS Statistical Account Setup"
 {
     Caption = 'Statistical Account Setup';
     DataClassification = ToBeClassified;
