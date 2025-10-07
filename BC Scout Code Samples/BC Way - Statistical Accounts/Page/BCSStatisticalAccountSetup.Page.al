@@ -1,4 +1,4 @@
-page 50700 "BCS Statistical Account Setup"
+page 60700 "BCS Statistical Account Setup"
 {
     ApplicationArea = Basic, Suite;
     Caption = 'Statistical Account Setup';

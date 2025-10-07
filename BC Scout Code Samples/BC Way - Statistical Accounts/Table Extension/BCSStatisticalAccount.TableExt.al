@@ -1,4 +1,4 @@
-tableextension 50700 "BCS Statistical Account" extends "Statistical Account"
+tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
 {
     fields
     {

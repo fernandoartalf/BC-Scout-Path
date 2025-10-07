@@ -1,4 +1,4 @@
-codeunit 50700 "BCS Attachment Management"
+codeunit 60700 "BCS Attachment Management"
 {
     // TODO: check this functionality on future wave releases .Reason: Obsolete page and likely to be refactor.
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
