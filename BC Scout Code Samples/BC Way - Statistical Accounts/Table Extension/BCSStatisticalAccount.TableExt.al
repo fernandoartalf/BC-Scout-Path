@@ -24,11 +24,10 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
 
     trigger OnBeforeRename()
     begin
-        "BCS No. Series" := '';
         if "No." = '' then begin
             BCSStatisticalAccountSetup.Get();
             BCSStatisticalAccountSetup.TestField("Statistical Account Nos.");
-            if NoSeries.AreRelated(BCSStatisticalAccountSetup."Statistical Account Nos.", xRec."BCS No. Series") then
+            if NoSeries.AreRelated(BCSStatisticalAccountSetup."Statistical Account Nos.", Rec."BCS No. Series") then
                 "BCS No. Series" := xRec."BCS No. Series"
             else
                 "BCS No. Series" := BCSStatisticalAccountSetup."Statistical Account Nos.";
