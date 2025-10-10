@@ -2,7 +2,7 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
 {
     fields
     {
-        field(50700; "BCS No. Series"; Code[20])
+        field(60700; "BCS No. Series"; Code[20])
         {
             Caption = 'No. Series';
             DataClassification = ToBeClassified;
