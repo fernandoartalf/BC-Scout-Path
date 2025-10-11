@@ -91,7 +91,32 @@ codeunit 60700 "BCS Attachment Management"
         end;
     end;
 
+    procedure DeleteRelatedDocumentAttachments(StatisticAccount: Code[20])
+    begin
+        DocumentAttachment.Reset();
+        DocumentAttachment.SetRange("Table ID", DATABASE::"Statistical Account");
+        DocumentAttachment.SetRange("No.", StatisticAccount);
+        if DocumentAttachment.FindSet() then
+            DocumentAttachment.DeleteAll(true);
+    end;
+
+    procedure CopyRelatedDocumentAttachments(PreviousStatisticAccount: Code[20]; NewStatisticAccount: Code[20])
+    var
+        NewDocumentAttachment: Record "Document Attachment";
+    begin
+        DocumentAttachment.Reset();
+        DocumentAttachment.SetRange("Table ID", DATABASE::"Statistical Account");
+        DocumentAttachment.SetRange("No.", PreviousStatisticAccount);
+        if DocumentAttachment.FindSet() then
+            repeat
+                NewDocumentAttachment := DocumentAttachment;
+                NewDocumentAttachment."No." := NewStatisticAccount;
+                NewDocumentAttachment.Insert(true);
+            until DocumentAttachment.Next() = 0;
+    end;
+
     var
         StatisticalAccount: Record "Statistical Account";
         BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
+        DocumentAttachment: Record "Document Attachment";
 }
