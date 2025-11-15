@@ -87,51 +87,75 @@ page 60701 "BCS StaT. Acc.Setup Wizard"
                         Caption = 'Statistical Account Nos.';
                         ToolTip = 'Specifies the number series used for Statistical Accounts.';
                     }
+                    field("Default API Journal Temp. Name"; Rec."Default API Journal Temp. Name")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Default API Journal Template Name';
+                        ToolTip = 'Specifies the default API Journal Template Name for Statistical Accounts.', Comment = '%';
+                    }
+                    field("Default API Journal Name"; Rec."Default API Journal Name")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Default API Journal Name';
+                        ToolTip = 'Specifies the default API Journal Name for Statistical Accounts.', Comment = '%';
+                    }
+                    field("Default API Document No."; Rec."Default API Document No.")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Default API Document No.';
+                        ToolTip = 'Specifies the default API Document No. for Statistical Accounts.';
+                    }
+                    field("Allow API Journal Posting"; Rec."Allow API Journal Posting")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Allow API Journal direct Posting';
+                        ToolTip = 'Specifies whether to allow direct posting from the API Journal.';
+                    }
                 }
-            }
-            group(Step40)
-            {
-                Visible = Step40Visible;
+                group(Step40)
+                {
+                    Visible = Step40Visible;
 
-                group(S41)
-                {
-                    Caption = 'Review & Finish 🧐 (Step 3/3)';
-                    InstructionalText = '🎉Congratulations!🎉 You have survived the setup for Statistical Accounts! 😎 Please review your settings below and click Finish to save your configuration. If you need to make any changes, use the Back👈 button to navigate to the previous steps.';
-                }
-                group(S42)
-                {
-                    Caption = 'Attachments Settings 📎';
-                    Editable = false;
-                    field("Enable Attachments Review"; Rec."Enable Attachments")
+                    group(S41)
                     {
-                        ApplicationArea = All;
-                        Caption = 'Enable Attachments on Statistical Accounts';
-                        ToolTip = 'Specifies whether attachments are enabled on Statistical Accounts.';
+                        Caption = 'Review & Finish 🧐 (Step 3/3)';
+                        InstructionalText = '🎉Congratulations!🎉 You have survived the setup for Statistical Accounts! 😎 Please review your settings below and click Finish to save your configuration. If you need to make any changes, use the Back👈 button to navigate to the previous steps.';
                     }
-                    field("Enable Links Review"; Rec."Enable Links")
+                    group(S42)
                     {
-                        ApplicationArea = All;
-                        Caption = 'Enable Links on Statistical Accounts';
-                        ToolTip = 'Specifies whether links are enabled on Statistical Accounts.';
+                        Caption = 'Attachments Settings 📎';
+                        Editable = false;
+                        field("Enable Attachments Review"; Rec."Enable Attachments")
+                        {
+                            ApplicationArea = All;
+                            Caption = 'Enable Attachments on Statistical Accounts';
+                            ToolTip = 'Specifies whether attachments are enabled on Statistical Accounts.';
+                        }
+                        field("Enable Links Review"; Rec."Enable Links")
+                        {
+                            ApplicationArea = All;
+                            Caption = 'Enable Links on Statistical Accounts';
+                            ToolTip = 'Specifies whether links are enabled on Statistical Accounts.';
+                        }
+                        field("Enable Notes Review"; Rec."Enable Notes")
+                        {
+                            ApplicationArea = All;
+                            Caption = 'Enable Notes on Statistical Accounts';
+                            ToolTip = 'Specifies whether notes are enabled on Statistical Accounts.';
+                        }
                     }
-                    field("Enable Notes Review"; Rec."Enable Notes")
+                    group(S43)
                     {
-                        ApplicationArea = All;
-                        Caption = 'Enable Notes on Statistical Accounts';
-                        ToolTip = 'Specifies whether notes are enabled on Statistical Accounts.';
-                    }
-                }
-                group(S43)
-                {
-                    Caption = 'Number Series Setup 🆔';
-                    Editable = false;
-                    field("Statistical Account Nos Review"; Rec."Statistical Account Nos.")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Statistical Account Nos.';
-                        ToolTip = 'Specifies the number series used for Statistical Accounts.';
-                    }
+                        Caption = 'Number Series Setup 🆔';
+                        Editable = false;
+                        field("Statistical Account Nos Review"; Rec."Statistical Account Nos.")
+                        {
+                            ApplicationArea = All;
+                            Caption = 'Statistical Account Nos.';
+                            ToolTip = 'Specifies the number series used for Statistical Accounts.';
+                        }
 
+                    }
                 }
             }
         }
