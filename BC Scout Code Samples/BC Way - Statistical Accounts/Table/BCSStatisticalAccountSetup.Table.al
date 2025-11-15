@@ -37,11 +37,15 @@ table 60700 "BCS Statistical Account Setup"
         {
             Caption = 'Default APIJournal Template Name';
             TableRelation = "Statistical Acc. Journal Batch"."Journal Template Name";
+            trigger OnValidate()
+            begin
+                "Default API Journal Name" := '';
+            end;
         }
         field(14; "Default API Journal Name"; Code[10])
         {
             Caption = 'Default API Journal Name';
-            TableRelation = "Statistical Acc. Journal Batch".Name;
+            TableRelation = "Statistical Acc. Journal Batch".Name where("Journal Template Name" = field("Default API Journal Temp. Name"));
         }
         field(15; "Default API Document No."; Code[20])
         {
