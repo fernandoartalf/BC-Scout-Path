@@ -2,9 +2,6 @@
   "folders": [
     {
       "path": "BC Scout Code Samples"
-    },
-    {
-      "path": ".AL-Go"
     }
   ],
   "settings": {
@@ -20,6 +17,7 @@
     ],
     "CRS.ObjectNamePrefix": "BCS ",
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShort>.al",
     "CRS.OnSaveAlFileAction": "Rename",
     "alCodeActions.varParameters": [
       "IsHandled"
