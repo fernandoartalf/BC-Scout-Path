@@ -1,4 +1,4 @@
-codeunit 60701 "DVC Stat. Acc.Setup Management"
+codeunit 60701 "BCS Stat. Acc.Setup Management"
 {
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Guided Experience", 'OnRegisterAssistedSetup', '', false, false)]
