@@ -1,4 +1,4 @@
-page 60703 "BCS DVC Stat. Acc. Journal API"
+page 60703 "BCS Stat. Acc. Journal API"
 {
     APIGroup = 'statisticAccounts';
     APIPublisher = 'businessCentralScout';
@@ -68,7 +68,7 @@ page 60703 "BCS DVC Stat. Acc. Journal API"
     }
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Codeunit.Run(Codeunit::"DVC Stat. Acc. Journal Mgmt", Rec);
+        Codeunit.Run(Codeunit::"BCS Stat. Acc. Journal Mgmt", Rec);
         exit(false);
     end;
 }

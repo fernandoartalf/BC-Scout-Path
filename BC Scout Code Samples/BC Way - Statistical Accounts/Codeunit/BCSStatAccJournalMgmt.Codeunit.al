@@ -1,4 +1,4 @@
-codeunit 60702 "DVC Stat. Acc. Journal Mgmt"
+codeunit 60702 "BCS Stat. Acc. Journal Mgmt"
 {
     TableNo = "Statistical Acc. Journal Line";
 

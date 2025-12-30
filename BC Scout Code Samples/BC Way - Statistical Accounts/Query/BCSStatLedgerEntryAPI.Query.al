@@ -1,4 +1,4 @@
-query 60704 "BCS DVC Stat. Ledger Entry API"
+query 60704 "BCS Stat. Ledger Entry API"
 {
     APIGroup = 'statisticAccounts';
     APIPublisher = 'businessCentralScout';
