@@ -3,7 +3,7 @@ query 60704 "BCS Stat. Ledger Entry API"
     APIGroup = 'statisticAccounts';
     APIPublisher = 'businessCentralScout';
     APIVersion = 'v2.0';
-    Caption = 'dvcStatLedgerEntryAPIQuery';
+    Caption = 'StatLedgerEntryAPIQuery';
     EntityName = 'statisticalLedgerEntryQuery';
     EntitySetName = 'statisticalLedgerEntriesQuery';
     QueryType = API;
