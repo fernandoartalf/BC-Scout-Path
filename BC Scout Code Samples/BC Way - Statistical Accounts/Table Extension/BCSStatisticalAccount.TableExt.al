@@ -10,6 +10,8 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
         }
     }
     trigger OnBeforeInsert()
+    var
+        IsHandled: Boolean;
     begin
         if "No." = '' then begin
             BCSStatisticalAccountSetup.Get();
@@ -20,6 +22,8 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
                 "BCS No. Series" := BCSStatisticalAccountSetup."Statistical Account Nos.";
             "No." := NoSeries.GetNextNo("BCS No. Series");
         end;
+
+        OnAfterInsertStatisticalAccount(Rec);
     end;
 
     trigger OnBeforeRename()
@@ -53,6 +57,11 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
     begin
         BCSAttachmentManagement.CopyRelatedDocumentAttachments(xRec."No.", "No.");
         BCSAttachmentManagement.DeleteRelatedDocumentAttachments(xRec."No.");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterInsertStatisticalAccount(var StatisticalAccount: Record "Statistical Account")
+    begin
     end;
 
     var
