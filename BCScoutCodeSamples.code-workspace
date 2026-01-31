@@ -17,7 +17,7 @@
     ],
     "CRS.ObjectNamePrefix": "BCS ",
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
-    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShort>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.OnSaveAlFileAction": "Rename",
     "alCodeActions.varParameters": [
       "IsHandled"
