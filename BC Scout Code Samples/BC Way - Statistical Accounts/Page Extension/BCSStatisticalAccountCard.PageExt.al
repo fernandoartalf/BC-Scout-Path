@@ -1,4 +1,4 @@
-pageextension 50700 "BCS Statistical Account Card" extends "Statistical Account Card"
+pageextension 60700 "BCS Statistical Account Card" extends "Statistical Account Card"
 {
     // This page extension is used to extend the current functionality of the Statistical Account Card page.
     layout

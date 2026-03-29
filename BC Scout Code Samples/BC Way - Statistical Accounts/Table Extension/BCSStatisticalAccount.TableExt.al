@@ -1,8 +1,8 @@
-tableextension 50700 "BCS Statistical Account" extends "Statistical Account"
+tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
 {
     fields
     {
-        field(50700; "BCS No. Series"; Code[20])
+        field(60700; "BCS No. Series"; Code[20])
         {
             Caption = 'No. Series';
             DataClassification = ToBeClassified;
@@ -10,6 +10,8 @@ tableextension 50700 "BCS Statistical Account" extends "Statistical Account"
         }
     }
     trigger OnBeforeInsert()
+    var
+        IsHandled: Boolean;
     begin
         if "No." = '' then begin
             BCSStatisticalAccountSetup.Get();
@@ -20,6 +22,27 @@ tableextension 50700 "BCS Statistical Account" extends "Statistical Account"
                 "BCS No. Series" := BCSStatisticalAccountSetup."Statistical Account Nos.";
             "No." := NoSeries.GetNextNo("BCS No. Series");
         end;
+
+        OnAfterInsertStatisticalAccount(Rec);
+    end;
+
+    trigger OnBeforeRename()
+    begin
+        if "No." = '' then begin
+            BCSStatisticalAccountSetup.Get();
+            BCSStatisticalAccountSetup.TestField("Statistical Account Nos.");
+            if NoSeries.AreRelated(BCSStatisticalAccountSetup."Statistical Account Nos.", Rec."BCS No. Series") then
+                "BCS No. Series" := Rec."BCS No. Series"
+            else
+                "BCS No. Series" := BCSStatisticalAccountSetup."Statistical Account Nos.";
+            "No." := NoSeries.GetNextNo("BCS No. Series");
+        end;
+        RenameAttachments();
+    end;
+
+    trigger OnBeforeDelete()
+    begin
+        BCSAttachmentManagement.DeleteRelatedDocumentAttachments(Rec."No.");
     end;
 
     procedure AssistEdit(): Boolean
@@ -30,7 +53,19 @@ tableextension 50700 "BCS Statistical Account" extends "Statistical Account"
             "No." := NoSeries.GetNextNo("BCS No. Series");
     end;
 
+    local procedure RenameAttachments()
+    begin
+        BCSAttachmentManagement.CopyRelatedDocumentAttachments(xRec."No.", "No.");
+        BCSAttachmentManagement.DeleteRelatedDocumentAttachments(xRec."No.");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterInsertStatisticalAccount(var StatisticalAccount: Record "Statistical Account")
+    begin
+    end;
+
     var
         BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
         NoSeries: Codeunit "No. Series";
+        BCSAttachmentManagement: Codeunit "BCS Attachment Management";
 }

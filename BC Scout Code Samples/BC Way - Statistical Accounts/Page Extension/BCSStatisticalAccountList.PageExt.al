@@ -1,4 +1,4 @@
-pageextension 50701 "BCS Statistical Account List" extends "Statistical Account List"
+pageextension 60701 "BCS Statistical Account List" extends "Statistical Account List"
 {
     // This page extension is used to extend the current functionality of the Statistical Account List page.
     layout

@@ -18,5 +18,6 @@ rad.json
 .altemplates/
 .altestrunner/
 .snapshots/
+.github/
 cache_*
 ~$*

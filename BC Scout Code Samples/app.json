@@ -1,8 +1,8 @@
 {
   "id": "e2d0c1d4-5793-481e-a2a1-7f69d9cf027c",
-  "name": "BC Scout Code Samples",
+  "name": "BC Scout Statistical Accounts",
   "publisher": "BC Scout",
-  "version": "1.0.0.1",
+  "version": "1.0.0.2",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -20,11 +20,12 @@
   ],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "25.0.0.0",
+  "application": "22.0.0.0",
+  "runtime": "15.2",
   "idRanges": [
     {
-      "from": 50700,
-      "to": 50800
+      "from": 60700,
+      "to": 60800
     }
   ],
   "runtime": "15.0",

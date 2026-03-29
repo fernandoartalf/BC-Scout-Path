@@ -1,4 +1,4 @@
-table 50700 "BCS Statistical Account Setup"
+table 60700 "BCS Statistical Account Setup"
 {
     Caption = 'Statistical Account Setup';
     DataClassification = ToBeClassified;
@@ -31,6 +31,31 @@ table 50700 "BCS Statistical Account Setup"
         field(12; "Enable Notes"; Boolean)
         {
             Caption = 'Enable Notes on Statistical Accounts';
+            InitValue = true;
+        }
+        field(13; "Default API Journal Temp. Name"; Code[10])
+        {
+            Caption = 'Default APIJournal Template Name';
+            TableRelation = "Statistical Acc. Journal Batch"."Journal Template Name";
+            trigger OnValidate()
+            begin
+                "Default API Journal Name" := '';
+            end;
+        }
+        field(14; "Default API Journal Name"; Code[10])
+        {
+            Caption = 'Default API Journal Name';
+            TableRelation = "Statistical Acc. Journal Batch".Name where("Journal Template Name" = field("Default API Journal Temp. Name"));
+        }
+        field(15; "Default API Document No."; Code[20])
+        {
+            Caption = 'Default API Document No. Series';
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
+        field(16; "Allow API Journal Posting"; Boolean)
+        {
+            Caption = 'Allow API Journal direct Posting';
             InitValue = true;
         }
     }

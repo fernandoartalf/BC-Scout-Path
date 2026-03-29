@@ -1,4 +1,4 @@
-codeunit 50700 "BCS Attachment Management"
+codeunit 60700 "BCS Attachment Management"
 {
     // TODO: check this functionality on future wave releases .Reason: Obsolete page and likely to be refactor.
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
@@ -91,7 +91,32 @@ codeunit 50700 "BCS Attachment Management"
         end;
     end;
 
+    procedure DeleteRelatedDocumentAttachments(StatisticAccount: Code[20])
+    begin
+        DocumentAttachment1.Reset();
+        DocumentAttachment1.SetRange("Table ID", DATABASE::"Statistical Account");
+        DocumentAttachment1.SetRange("No.", StatisticAccount);
+        if DocumentAttachment1.FindSet() then
+            DocumentAttachment1.DeleteAll(true);
+    end;
+
+    procedure CopyRelatedDocumentAttachments(PreviousStatisticAccount: Code[20]; NewStatisticAccount: Code[20])
+    var
+        NewDocumentAttachment: Record "Document Attachment";
+    begin
+        DocumentAttachment1.Reset();
+        DocumentAttachment1.SetRange("Table ID", DATABASE::"Statistical Account");
+        DocumentAttachment1.SetRange("No.", PreviousStatisticAccount);
+        if DocumentAttachment1.FindSet() then
+            repeat
+                NewDocumentAttachment := DocumentAttachment1;
+                NewDocumentAttachment."No." := NewStatisticAccount;
+                NewDocumentAttachment.Insert(true);
+            until DocumentAttachment1.Next() = 0;
+    end;
+
     var
         StatisticalAccount: Record "Statistical Account";
         BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
+        DocumentAttachment1: Record "Document Attachment";
 }
