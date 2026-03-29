@@ -1,4 +1,4 @@
-codeunit 50704 "BCS Download Json"
+codeunit 60706 "BCS Download Json"
 {
     // Important Note: Ivan Labrador is the amazing  developer author of this code.
     // I want to give Ivan kudos for his work 

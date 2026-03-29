@@ -1,4 +1,4 @@
-codeunit 50702 "BCS Rec JSON  Management"
+codeunit 60705 "BCS Rec JSON  Management"
 {
     // Important Note: Ivan Labrador is the amazing  developer author of this code.
     // I want to give Ivan kudos for his work 

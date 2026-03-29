@@ -1,6 +1,6 @@
 namespace BCSSTATACCOUNTS;
 
-permissionset 50700 "BCS STA PermSet"
+permissionset 60701 "BCS STA PermSet"
 {
     Assignable = true;
     Permissions = tabledata "BCS Statistical Account Setup" = RIMD,

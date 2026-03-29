@@ -1,4 +1,4 @@
-codeunit 50703 "BCS Demo Data Deployment"
+codeunit 60707 "BCS Demo Data Deployment"
 {
     procedure InternalJsonList()
     begin

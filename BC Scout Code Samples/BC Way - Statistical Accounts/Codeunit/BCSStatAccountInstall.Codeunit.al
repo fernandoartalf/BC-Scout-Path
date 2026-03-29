@@ -1,25 +1,28 @@
-codeunit 50701 "BCS Stat. Account Install"
+codeunit 60704 "BCS Stat. Account Install"
 {
     Subtype = Install;
 
     trigger OnInstallAppPerCompany()
     var
+        UpgradeTag: Codeunit "Upgrade Tag";
         StatisticalAccountModuleInfo: ModuleInfo;
     begin
         NavApp.GetCurrentModuleInfo(StatisticalAccountModuleInfo);
-        if IsFirstTimeDeployment(StatisticalAccountModuleInfo) and IsSandboxEnvironment() then
-            DeployInstallationSetup();
+        if IsFirstTimeDeployment(StatisticalAccountModuleInfo) then begin
+            if IsSandboxEnvironment() then
+                DeployInstallationSetup();
+            // Set all upgrade tags on fresh install to prevent upgrade code from running
+            UpgradeTag.SetAllUpgradeTags();
+        end;
     end;
 
-    local procedure DeployInstallationSetup()
+    procedure DeployInstallationSetup()
     begin
         InitialiseStatisticalAccountSetup();
         SetStatisticalAccountDefaultSeriesNo(SetStatisticalAccountSeriesNo());
     end;
 
     local procedure InitialiseStatisticalAccountSetup()
-    var
-
     begin
         BCSStatisticalAccountSetup.Reset();
         if not BCSStatisticalAccountSetup.Get() then begin

@@ -28,7 +28,6 @@
       "to": 60800
     }
   ],
-  "runtime": "15.0",
   "features": [
     "NoImplicitWith"
   ],
