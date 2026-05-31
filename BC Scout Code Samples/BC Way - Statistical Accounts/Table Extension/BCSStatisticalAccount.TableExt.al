@@ -86,6 +86,17 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
             Error(StatusErr, Rec."BCS Approval Status");
     end;
 
+    procedure ApprovalStatusAllowModify(): Boolean
+    begin
+        if Rec."BCS Approval Status" in
+            [Rec."BCS Approval Status"::Approved,
+             Rec."BCS Approval Status"::"Pending Approval"]
+        then
+            exit(false)
+        else
+            exit(true);
+    end;
+
     var
         BCSStatisticalAccountSetup: Record "BCS Statistical Account Setup";
         NoSeries: Codeunit "No. Series";

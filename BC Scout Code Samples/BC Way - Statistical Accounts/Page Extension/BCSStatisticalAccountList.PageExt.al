@@ -118,7 +118,7 @@ pageextension 60701 "BCS Statistical Account List" extends "Statistical Account 
             Rec.RecordId, CanRequestApprovalForFlow, CanCancelApprovalForFlow);
 
         BCSSetApprovalStatusStyle();
-        CurrPage.Editable := Rec."BCS Approval Status" <> Rec."BCS Approval Status"::Approved;
+        GPageEditable := Rec.ApprovalStatusAllowModify();
     end;
 
     trigger OnOpenPage()

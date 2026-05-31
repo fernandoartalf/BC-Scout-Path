@@ -21,11 +21,11 @@ codeunit 60711 "BCS Stat. Acc. Workflow Setup"
     local procedure OnAfterInsertApprovalsTableRelations()
     var
         ApprovalEntry: Record "Approval Entry";
+        StatisticalAccount: Record "Statistical Account";
+        WorkflowWebhookEntry: Record "Workflow Webhook Entry";
     begin
-        WorkflowSetup.InsertTableRelation(
-            Database::"Statistical Account", 0,
-            Database::"Approval Entry",
-            ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(Database::"Statistical Account", 0, Database::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(Database::"Statistical Account", StatisticalAccount.FieldNo("SystemId"), Database::"Workflow Webhook Entry", WorkflowWebhookEntry.FieldNo("Data ID"));
     end;
 
     // ─────────────────────────────────────────────
@@ -48,7 +48,7 @@ codeunit 60711 "BCS Stat. Acc. Workflow Setup"
             WorkflowCodeLbl,
             WorkflowDescLbl,
             CategoryCodeLbl);
-
+        UpdateMatrixData();
         InsertApprovalWorkflowDetails(Workflow);
         WorkflowSetup.MarkWorkflowAsTemplate(Workflow);
     end;
@@ -57,7 +57,6 @@ codeunit 60711 "BCS Stat. Acc. Workflow Setup"
     var
         WorkflowStepArgument: Record "Workflow Step Argument";
         StatisticalAccount: Record "Statistical Account";
-        ApprovalMgmt: Codeunit "BCS Stat. Acc. Approval Mgmt.";
         BlankDateFormula: DateFormula;
     begin
         WorkflowSetup.InitWorkflowStepArgument(
@@ -85,9 +84,47 @@ codeunit 60711 "BCS Stat. Acc. Workflow Setup"
             WorkflowSetup.Encode(StatisticalAccount.GetView(false))));
     end;
 
+    local procedure UpdateMatrixData()
+    var
+        WorkflowResponse: Record "Workflow Response";
+        WFEventResponseCombination: Record "WF Event/Response Combination";
+    begin
+        WorkflowResponse.Reset();
+
+        if not (WFEventResponseCombination.get(WFEventResponseCombination.Type::Response, SENDAPPROVALREQUESTFORAPPROVALLbl, WFEventResponseCombination."Predecessor Type"::"Event", ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode())) then begin
+            WorkflowResponse.SetRange("Function Name", SENDAPPROVALREQUESTFORAPPROVALLbl);
+            WorkflowResponse.FindFirst();
+            WorkflowResponseHandling.AddResponsePredecessor(SENDAPPROVALREQUESTFORAPPROVALLbl, ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode());
+            WorkflowResponse.MakeIndependent();
+        end;
+        if not (WFEventResponseCombination.get(WFEventResponseCombination.Type::Response, SETSTATUSTOPENDINGAPPROVALLbl, WFEventResponseCombination."Predecessor Type"::"Event", ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode())) then begin
+            WorkflowResponse.SetRange("Function Name", SETSTATUSTOPENDINGAPPROVALLbl);
+            WorkflowResponse.FindFirst();
+            WorkflowResponseHandling.AddResponsePredecessor(SETSTATUSTOPENDINGAPPROVALLbl, ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode());
+            WorkflowResponse.MakeIndependent();
+        end;
+        if not (WFEventResponseCombination.get(WFEventResponseCombination.Type::Response, SENDNOTIFICATIONTOWEBHOOKLbl, WFEventResponseCombination."Predecessor Type"::"Event", ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode())) then begin
+            WorkflowResponse.SetRange("Function Name", SENDNOTIFICATIONTOWEBHOOKLbl);
+            WorkflowResponse.FindFirst();
+            WorkflowResponseHandling.AddResponsePredecessor(SENDNOTIFICATIONTOWEBHOOKLbl, ApprovalMgmt.RunWorkflowOnSendStatAccForApprovalCode());
+            WorkflowResponse.MakeIndependent();
+        end;
+        if not (WFEventResponseCombination.get(WFEventResponseCombination.Type::Response, CANCELALLAPPROVALREQUESTSLbl, WFEventResponseCombination."Predecessor Type"::"Event", ApprovalMgmt.RunWorkflowOnCancelStatAccApprovalRequestCode())) then begin
+            WorkflowResponse.SetRange("Function Name", CANCELALLAPPROVALREQUESTSLbl);
+            WorkflowResponse.FindFirst();
+            WorkflowResponseHandling.AddResponsePredecessor(CANCELALLAPPROVALREQUESTSLbl, ApprovalMgmt.RunWorkflowOnCancelStatAccApprovalRequestCode());
+            WorkflowResponse.MakeIndependent();
+        end;
+    end;
+
     var
         WorkflowSetup: Codeunit "Workflow Setup";
         WorkflowResponseHandling: Codeunit "Workflow Response Handling";
+        ApprovalMgmt: Codeunit "BCS Stat. Acc. Approval Mgmt.";
+        SENDAPPROVALREQUESTFORAPPROVALLbl: label 'SENDAPPROVALREQUESTFORAPPROVAL', Locked = true;
+        SENDNOTIFICATIONTOWEBHOOKLbl: label 'SENDNOTIFICATIONTOWEBHOOK', Locked = true;
+        SETSTATUSTOPENDINGAPPROVALLbl: label 'SETSTATUSTOPENDINGAPPROVAL', Locked = true;
+        CANCELALLAPPROVALREQUESTSLbl: label 'CANCELALLAPPROVALREQUESTS', Locked = true;
         CategoryCodeLbl: Label 'BCSSTATACCAPPR', Locked = true;
         CategoryDescLbl: Label 'BCS Statistical Account Approvals';
         WorkflowCodeLbl: Label 'BCSSTATACCAPPRWF', Locked = true;

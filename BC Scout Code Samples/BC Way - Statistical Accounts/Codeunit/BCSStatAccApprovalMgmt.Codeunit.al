@@ -92,31 +92,18 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
     // EVENT PREDECESSORS
     // ═══════════════════════════════════════════════════════════════════════════
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Event Handling",
-        'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
-    local procedure OnAddWorkflowEventPredecessorsToLibrary(
-        EventFunctionName: Code[128])
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Event Handling", 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
+    local procedure OnAddWorkflowEventPredecessorsToLibrary(EventFunctionName: Code[128])
     begin
         case EventFunctionName of
             RunWorkflowOnCancelStatAccApprovalRequestCode():
-                WorkflowEventHandling.AddEventPredecessor(
-                    RunWorkflowOnCancelStatAccApprovalRequestCode(),
-                    RunWorkflowOnSendStatAccForApprovalCode());
-
+                WorkflowEventHandling.AddEventPredecessor(RunWorkflowOnCancelStatAccApprovalRequestCode(), RunWorkflowOnSendStatAccForApprovalCode());
             WorkflowEventHandling.RunWorkflowOnApproveApprovalRequestCode():
-                WorkflowEventHandling.AddEventPredecessor(
-                    WorkflowEventHandling.RunWorkflowOnApproveApprovalRequestCode(),
-                    RunWorkflowOnSendStatAccForApprovalCode());
-
+                WorkflowEventHandling.AddEventPredecessor(WorkflowEventHandling.RunWorkflowOnApproveApprovalRequestCode(), RunWorkflowOnSendStatAccForApprovalCode());
             WorkflowEventHandling.RunWorkflowOnRejectApprovalRequestCode():
-                WorkflowEventHandling.AddEventPredecessor(
-                    WorkflowEventHandling.RunWorkflowOnRejectApprovalRequestCode(),
-                    RunWorkflowOnSendStatAccForApprovalCode());
-
+                WorkflowEventHandling.AddEventPredecessor(WorkflowEventHandling.RunWorkflowOnRejectApprovalRequestCode(), RunWorkflowOnSendStatAccForApprovalCode());
             WorkflowEventHandling.RunWorkflowOnDelegateApprovalRequestCode():
-                WorkflowEventHandling.AddEventPredecessor(
-                    WorkflowEventHandling.RunWorkflowOnDelegateApprovalRequestCode(),
-                    RunWorkflowOnSendStatAccForApprovalCode());
+                WorkflowEventHandling.AddEventPredecessor(WorkflowEventHandling.RunWorkflowOnDelegateApprovalRequestCode(), RunWorkflowOnSendStatAccForApprovalCode());
         end;
     end;
 
@@ -147,8 +134,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
     // STATUS UPDATES
     // ═══════════════════════════════════════════════════════════════════════════
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.",
-        'OnSetStatusToPendingApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnSetStatusToPendingApproval', '', false, false)]
     local procedure OnSetStatusToPendingApproval(
         RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
@@ -168,8 +154,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.",
-        'OnApproveApprovalRequest', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnApproveApprovalRequest', '', false, false)]
     local procedure OnApproveApprovalRequest(var ApprovalEntry: Record "Approval Entry")
     var
         StatisticalAccount: Record "Statistical Account";
@@ -192,8 +177,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.",
-        'OnRejectApprovalRequest', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnRejectApprovalRequest', '', false, false)]
     local procedure OnRejectApprovalRequest(var ApprovalEntry: Record "Approval Entry")
     var
         StatisticalAccount: Record "Statistical Account";
@@ -211,10 +195,8 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.",
-        'OnBeforeShowCommonApprovalStatus', '', false, false)]
-    local procedure OnBeforeShowCommonApprovalStatus(
-        var RecRef: RecordRef; var IsHandle: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnBeforeShowCommonApprovalStatus', '', false, false)]
+    local procedure OnBeforeShowCommonApprovalStatus(var RecRef: RecordRef; var IsHandle: Boolean)
     var
         StatisticalAccount: Record "Statistical Account";
     begin
@@ -241,8 +223,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
     // WORKFLOW RESPONSE HANDLING
     // ═══════════════════════════════════════════════════════════════════════════
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling",
-        'OnReleaseDocument', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnReleaseDocument', '', true, true)]
     local procedure OnReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         StatisticalAccount: Record "Statistical Account";
@@ -259,8 +240,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling",
-        'OnOpenDocument', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnOpenDocument', '', true, true)]
     local procedure OnOpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         StatisticalAccount: Record "Statistical Account";
@@ -278,12 +258,17 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
         end;
     end;
 
+    procedure SetStatisticalAccountStatustoOpen(var StatisticalAccount: Record "Statistical Account")
+    begin
+        StatisticalAccount.Validate("BCS Approval Status", StatisticalAccount."BCS Approval Status"::Open);
+        StatisticalAccount.Modify(true);
+    end;
+
     // ═══════════════════════════════════════════════════════════════════════════
     // RESPONSE PREDECESSORS
     // ═══════════════════════════════════════════════════════════════════════════
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling",
-        'OnAddWorkflowResponsePredecessorsToLibrary', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnAddWorkflowResponsePredecessorsToLibrary', '', false, false)]
     local procedure OnAddWorkflowResponsePredecessorsToLibrary(
         ResponseFunctionName: Code[128])
     begin
@@ -319,8 +304,7 @@ codeunit 60710 "BCS Stat. Acc. Approval Mgmt."
     // CARD PAGE MAPPING
     // ═══════════════════════════════════════════════════════════════════════════
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Page Management",
-        'OnConditionalCardPageIDNotFound', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Page Management", 'OnConditionalCardPageIDNotFound', '', true, true)]
     local procedure OnConditionalCardPageIDNotFound(
         RecordRef: RecordRef; var CardPageID: Integer)
     begin

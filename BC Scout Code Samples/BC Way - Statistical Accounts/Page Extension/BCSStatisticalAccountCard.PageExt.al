@@ -108,6 +108,7 @@ pageextension 60700 "BCS Statistical Account Card" extends "Statistical Account 
                     begin
                         BCSApprovalMgmt.OnCancelStatAccApprovalRequest(Rec);
                         WorkflowWebhookMgt.FindAndCancel(Rec.RecordId);
+                        BCSApprovalMgmt.SetStatisticalAccountStatustoOpen(Rec);
                         CurrPage.Update(false);
                     end;
                 }
@@ -125,7 +126,7 @@ pageextension 60700 "BCS Statistical Account Card" extends "Statistical Account 
             Rec.RecordId, CanRequestApprovalForFlow, CanCancelApprovalForFlow);
 
         BCSSetApprovalStatusStyle();
-        GPageEditable := Rec."BCS Approval Status" <> Rec."BCS Approval Status"::Approved;
+        GPageEditable := Rec.ApprovalStatusAllowModify();
     end;
 
     trigger OnOpenPage()
