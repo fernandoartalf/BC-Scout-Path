@@ -13,19 +13,19 @@ pageextension 60700 "BCS Statistical Account Card" extends "Statistical Account 
         }
         addfirst(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = All;
-                Caption = 'Attachments';
-                ObsoleteTag = '25.0';
-                ObsoleteState = Pending;
-                ObsoleteReason = 'The "Document Attachment FactBox" has been replaced by "Doc. Attachment List Factbox", which supports multiple files upload.';
-                SubPageLink = "Table ID" = const(Database::"Statistical Account"),
-                              "No." = field("No."),
-                              "Document Type" = const(BCSStatisticalAccount);
-                Visible = false;
-                Editable = enabledattachments;
-            }
+            // part("Attached Documents"; "Document Attachment Factbox")
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Attachments';
+            //     ObsoleteTag = '25.0';
+            //     ObsoleteState = Pending;
+            //     ObsoleteReason = 'The "Document Attachment FactBox" has been replaced by "Doc. Attachment List Factbox", which supports multiple files upload.';
+            //     SubPageLink = "Table ID" = const(Database::"Statistical Account"),
+            //                   "No." = field("No."),
+            //                   "Document Type" = const(BCSStatisticalAccount);
+            //     Visible = false;
+            //     Editable = enabledattachments;
+            // }
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
