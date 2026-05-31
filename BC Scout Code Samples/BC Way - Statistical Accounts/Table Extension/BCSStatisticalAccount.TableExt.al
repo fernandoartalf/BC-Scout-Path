@@ -8,6 +8,12 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
+        field(60701; "BCS Approval Status"; Enum "BCS Stat. Acc. Appr. Status")
+        {
+            Caption = 'Approval Status';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
     trigger OnBeforeInsert()
     var
@@ -41,7 +47,11 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
     end;
 
     trigger OnBeforeDelete()
+    var
+        ApprovalsMgmt: Codeunit "Approvals Mgmt.";
     begin
+        BCSCheckApprovalStatus();
+        ApprovalsMgmt.DeleteApprovalEntries(Rec.RecordId);
         BCSAttachmentManagement.DeleteRelatedDocumentAttachments(Rec."No.");
     end;
 
@@ -62,6 +72,18 @@ tableextension 60700 "BCS Statistical Account" extends "Statistical Account"
     [IntegrationEvent(false, false)]
     local procedure OnAfterInsertStatisticalAccount(var StatisticalAccount: Record "Statistical Account")
     begin
+    end;
+
+    local procedure BCSCheckApprovalStatus()
+    var
+        StatusErr: Label 'You cannot delete a Statistical Account with Approval Status %1.',
+            Comment = '%1 = Approval Status value';
+    begin
+        if Rec."BCS Approval Status" in
+            [Rec."BCS Approval Status"::Approved,
+             Rec."BCS Approval Status"::"Pending Approval"]
+        then
+            Error(StatusErr, Rec."BCS Approval Status");
     end;
 
     var
