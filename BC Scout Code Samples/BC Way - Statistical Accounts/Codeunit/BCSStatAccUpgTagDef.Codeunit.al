@@ -8,6 +8,7 @@ codeunit 60709 "BCS Stat. Acc. Upg. Tag Def."
         // Register all per-company upgrade tags here
         PerCompanyUpgradeTags.Add(GetFieldMigrationTag());
         PerCompanyUpgradeTags.Add(GetSetupUpgradeTag());
+        PerCompanyUpgradeTags.Add(GetStatAccStatementReportSelectionTag());
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Upgrade Tag", OnGetPerDatabaseUpgradeTags, '', false, false)]
@@ -26,5 +27,10 @@ codeunit 60709 "BCS Stat. Acc. Upg. Tag Def."
     procedure GetSetupUpgradeTag(): Code[250]
     begin
         exit('BCS-60705-StatAccSetupUpgrade-20260329');
+    end;
+
+    procedure GetStatAccStatementReportSelectionTag(): Code[250]
+    begin
+        exit('BCS-60712-StatAccStatementReportSelection-20260731');
     end;
 }

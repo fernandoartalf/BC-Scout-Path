@@ -113,6 +113,32 @@ pageextension 60700 "BCS Statistical Account Card" extends "Statistical Account 
                     end;
                 }
             }
+
+            group("BCS BCSReporting")
+            {
+                Caption = 'Reporting';
+                Image = Report;
+
+                action("BCS BCS_PrintStatement")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Print Statement';
+                    Image = Print;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ToolTip = 'Print the Statistical Account and its related ledger entries using the report configured on the Statistical Account Report Selection page.';
+
+                    trigger OnAction()
+                    var
+                        StatisticalAccount: Record "Statistical Account";
+                        BCSReportSelMgmt: Codeunit "BCS Stat. Acc. Rep. Sel. Mgmt.";
+                    begin
+                        StatisticalAccount.SetRange("No.", Rec."No.");
+                        BCSReportSelMgmt.PrintStatement(StatisticalAccount);
+                    end;
+                }
+            }
         }
     }
 

@@ -19,6 +19,21 @@ codeunit 60708 "BCS Stat. Acc. Upgrade"
     begin
         // Add upgrade procedures here as versions evolve
         // Each procedure should be guarded by upgrade tags
+        UpgradeStatAccStatementReportSelection();
+    end;
+
+    local procedure UpgradeStatAccStatementReportSelection()
+    var
+        UpgradeTagDef: Codeunit "BCS Stat. Acc. Upg. Tag Def.";
+        UpgradeTag: Codeunit "Upgrade Tag";
+        InstallCU: Codeunit "BCS Stat. Account Install";
+    begin
+        if UpgradeTag.HasUpgradeTag(UpgradeTagDef.GetStatAccStatementReportSelectionTag()) then
+            exit;
+
+        InstallCU.InsertDefaultStatAccStatementReportSelection();
+
+        UpgradeTag.SetUpgradeTag(UpgradeTagDef.GetStatAccStatementReportSelectionTag());
     end;
 
     trigger OnValidateUpgradePerCompany()
@@ -58,5 +73,4 @@ codeunit 60708 "BCS Stat. Acc. Upgrade"
 
     var
         MinVersionRequiredErr: Label 'Upgrade requires minimum version %1. Current data version is %2.', Comment = '%1 = Required version, %2 = Current version';
-        SetupMissingErr: Label 'Statistical Account Setup record is missing after upgrade.';
 }
