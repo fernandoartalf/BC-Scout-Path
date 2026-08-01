@@ -20,6 +20,28 @@ codeunit 60704 "BCS Stat. Account Install"
     begin
         InitialiseStatisticalAccountSetup();
         SetStatisticalAccountDefaultSeriesNo(SetStatisticalAccountSeriesNo());
+        InsertDefaultStatAccStatementReportSelection();
+    end;
+
+    /// <summary>
+    /// Seeds a default Report Selections entry for the Statistical Account
+    /// Statement usage. Insert-only-when-empty — never overwrites customer
+    /// configuration. Also invoked by the Upgrade codeunit, guarded by an
+    /// Upgrade Tag.
+    /// </summary>
+    internal procedure InsertDefaultStatAccStatementReportSelection()
+    var
+        ReportSelection: Record "Report Selections";
+    begin
+        ReportSelection.SetRange(Usage, ReportSelection.Usage::"BCS Stat. Account Statement");
+        if not ReportSelection.IsEmpty() then
+            exit;
+
+        ReportSelection.Init();
+        ReportSelection.Usage := ReportSelection.Usage::"BCS Stat. Account Statement";
+        ReportSelection.Sequence := '1';
+        ReportSelection.Validate("Report ID", Report::"BCS Stat. Account Statement");
+        ReportSelection.Insert(true);
     end;
 
     local procedure InitialiseStatisticalAccountSetup()

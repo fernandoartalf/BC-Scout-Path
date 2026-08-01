@@ -11,5 +11,8 @@ permissionset 60700 "BCS STATACCOUNTS"
         codeunit "BCS Stat. Acc.Setup Management" = X,
         page "BCS Stat. Acc. Journal API" = X,
         page "BCS Stat. Ledger Entry API" = X,
-        query "BCS Stat. Ledger Entry API" = X;
+        query "BCS Stat. Ledger Entry API" = X,
+        page "BCS Stat. Acc. Rep. Sel." = X,
+        codeunit "BCS Stat. Acc. Rep. Sel. Mgmt." = X,
+        report "BCS Stat. Account Statement" = X;
 }
